@@ -144,6 +144,12 @@ function changeNameHandler(event: Event) {
     elements.settingsForm.reset();
 }
 
+function closeConfirmationHandler() {
+    hidePopup(elements.popupOverlayConfirmation);
+    renderAllMessages();
+    renderUsersList();
+}
+
 document.addEventListener('DOMContentLoaded', renderAllMessages);
 document.addEventListener('DOMContentLoaded', renderUsersList);
 elements.messages.addEventListener('scroll', scrollHandler);
@@ -155,5 +161,5 @@ elements.closeModalSettings.addEventListener('click', () => hidePopup(elements.p
 elements.authorization.addEventListener('click', () => showPopup(elements.popupOverlayAuthorization));
 elements.closeModalAuthorization.addEventListener('click', () => hidePopup(elements.popupOverlayAuthorization));
 elements.enterCodeButton.addEventListener('click', showPopupConfirmation);
-elements.closeModalConfirmation.addEventListener('click', () => hidePopup(elements.popupOverlayConfirmation));
+elements.closeModalConfirmation.addEventListener('click', closeConfirmationHandler);
 elements.formAuthorization.addEventListener('submit', handlerGetCode);
